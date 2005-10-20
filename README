@@ -1,0 +1,26 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1384
+
+This script cycles through certain Unicode characters while typing. It only
+works if set encoding=utf-8.
+
+When on, the hyphen (-), period (.), apostrophe ('), and quote (")
+characters are mapped to the appropriate functions within this file.
+
+When you enter two hyphen characters in a row, the first hyphen character
+will cycle to an EN DASH character. A third hyphen will turn the EN DASH
+into an EM DASH. A fourth hyphen will turn your EM DASH back into a
+HYPHEN-MINUS.
+
+Entering three periods in a row will replace all three periods with a
+HORIZONTAL ELLIPSIS character.
+
+Entering an apostrophe will try to determine if the apostrophe should be a
+LEFT SINGLE QUOTATION MARK or RIGHT SINGLE QUOTATION MARK. It does this by
+looking at the character to the left of the new character. You can cycle
+between LEFT SINGLE QUOTATION MARK, APOSTROPHE, and RIGHT SINGLE QUOTATION
+MARK by repeatedly hitting your apostrophe key.
+
+Quote characters are treated in the same manner as apostrophe characters.
+You get either a LEFT DOUBLE QUOTATION MARK, normal QUOTATION MARK, or RIGHT
+DOUBLE QUOTATION MARK based on the previous character and how many times you
+hit your quote key in a row.
