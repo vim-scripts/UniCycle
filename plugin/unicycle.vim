@@ -14,7 +14,9 @@
 " For convenience, you might put this in your ‘~/.vimrc’ with a line
 " something like:
 "   map <Leader>u :UniCycleToggle<CR>
-" and then toggle it on/off repeatedly with ‘\u’.
+" and then toggle it on/off repeatedly with ‘\u’. To start with unicycle
+" on you can also include:
+"   let g:unicycle_on = 1  # or equivalently: call UniCycleOn()
 "
 " When on, the hyphen (-), period (.), apostrophe ('), and quote (")
 " characters are mapped to the appropriate functions within this file.
@@ -180,7 +182,8 @@ command UniCycleOn call UniCycleOn()
 command UniCycleOff call UniCycleOff()
 
 if !exists('g:unicycle_on')
-    let g:unicycle_on = 1
+    " Users should turn on manually from elsewhere.
+    let g:unicycle_on = 0
 endif
 if g:unicycle_on
     call UniCycleOn()
