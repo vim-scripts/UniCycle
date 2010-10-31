@@ -10,6 +10,12 @@
 " To install, drop it in your plugins directory. To use, execute the
 " :UniCycleOn command. Turn turn it off, execute :UniCycleOff.
 "
+" You can also toggle this on/off by using the :UniCycleToggle command.
+" For convenience, you might put this in your ‘~/.vimrc’ with a line
+" something like:
+"   map <Leader>u :UniCycleToggle<CR>
+" and then toggle it on/off repeatedly with ‘\u’.
+"
 " When on, the hyphen (-), period (.), apostrophe ('), and quote (")
 " characters are mapped to the appropriate functions within this file.
 "
@@ -173,3 +179,22 @@ endfunction
 command UniCycleOn call UniCycleOn()
 command UniCycleOff call UniCycleOff()
 
+if !exists('g:unicycle_on')
+    let g:unicycle_on = 1
+endif
+if g:unicycle_on
+    call UniCycleOn()
+endif
+
+function! UniCycleToggle()
+    if g:unicycle_on
+        echo "Turning unicycle off"
+        let g:unicycle_on = 0
+        call UniCycleOff()
+    else
+        echo "Turning unicycle on"
+        let g:unicycle_on = 1
+        call UniCycleOn()
+    endif
+endfunction
+command UniCycleToggle call UniCycleToggle()
