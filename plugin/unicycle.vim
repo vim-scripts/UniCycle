@@ -16,7 +16,7 @@
 "   map <Leader>u :UniCycleToggle<CR>
 " and then toggle it on/off repeatedly with ‘\u’. To start with unicycle
 " on you can also include:
-"   let g:unicycle_on = 1  # or equivalently: call UniCycleOn()
+"   let g:unicycle_on = 1  # or equivalently: call unicycle#activate()
 "
 " When on, the hyphen (-), period (.), apostrophe ('), and quote (")
 " characters are mapped to the appropriate functions within this file.
@@ -164,40 +164,40 @@ function! UniCycleQuote()
 	endif
 endfunction
 
-function! UniCycleOn()
+function! unicycle#activate()
 	inoremap - -<Esc>:call UniCycleHyphen()<CR>a
 	inoremap . .<Esc>:call UniCyclePeriod()<CR>a
 	inoremap ' x<Esc>:call UniCycleApostrophe()<CR>a
 	inoremap " x<Esc>:call UniCycleQuote()<CR>a
 endfunction
 
-function! UniCycleOff()
+function! unicycle#deactivate()
 	iunmap -
 	iunmap .
 	iunmap '
 	iunmap "
 endfunction
 
-command UniCycleOn call UniCycleOn()
-command UniCycleOff call UniCycleOff()
+command UniCycleOn call unicycle#activate()
+command UniCycleOff call unicycle#deactivate()
 
 if !exists('g:unicycle_on')
     " Users should turn on manually from elsewhere.
     let g:unicycle_on = 0
 endif
 if g:unicycle_on
-    call UniCycleOn()
+    call unicycle#activate()
 endif
 
 function! UniCycleToggle()
     if g:unicycle_on
         echo "Turning unicycle off"
         let g:unicycle_on = 0
-        call UniCycleOff()
+        call unicycle#deactivate()
     else
         echo "Turning unicycle on"
         let g:unicycle_on = 1
-        call UniCycleOn()
+        call unicycle#activate()
     endif
 endfunction
 command UniCycleToggle call UniCycleToggle()
