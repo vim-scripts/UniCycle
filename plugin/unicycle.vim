@@ -8,7 +8,7 @@
 " works if set encoding=utf-8.
 "
 " To install, drop it in your plugins directory. To use, execute the
-" :UniCycleOn command. Turn turn it off, execute :UniCycleOff.
+" :UniCycleOn command. To turn it off, execute :UniCycleOff.
 "
 " When on, the hyphen (-), period (.), apostrophe ('), and quote (")
 " characters are mapped to the appropriate functions within this file.
